@@ -32,14 +32,19 @@ for line in test_file:
 test_file.close()
 
 
+# ALL POSSIBLE GUESSES
+all_words = [*training_words, *validation_words, *test_words] 
+
+
 def playWordle(guessWordFunction, words):
   guess_counts = []
   for word in words:
-    previous_guesses = []
+    guessed_words = []
+    guessed_letters = {}
     num_guesses = 0
     for _ in range(6):
         num_guesses += 1
-        guess = guessWordFunction(previous_guesses)
+        guess = guessWordFunction(guessed_words, guessed_letters)
         if guess == word:
           break      
     guess_counts.append(num_guesses)
