@@ -1,11 +1,8 @@
-test_file = open("../data/test.txt", "r")
+from helpers import training_words, playWordle
+ 
+def solver1(words):
+    return 'tests'
 
-test_words = []
-for line in test_file:
-  stripped_line = line.strip()
-  line_list = stripped_line.split()
-  test_words.append(line_list[0])
+average_guess = playWordle(solver1, training_words)
 
-test_file.close()
-
-print(test_words)
+print(f"\n Averaged {average_guess} guesses per wordle!")
